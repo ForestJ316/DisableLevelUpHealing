@@ -9,8 +9,9 @@ void Settings::ReadIniSettings()
 		ini.SetUnicode();
 		ini.LoadFile(path.string().c_str());
 		
-		ReadBoolSetting(ini, "General", "bDisableLevelUpHealth", bDisableLevelUpHealth);
-		ReadBoolSetting(ini, "General", "bDisableLevelUpAP", bDisableLevelUpAP);
+		ReadBoolSetting(ini, "General", "Disable Level-Up Health", bDisableLevelUpHealth);
+		ReadBoolSetting(ini, "General", "Disable Level-Up AP", bDisableLevelUpAP);
+		ReadBoolSetting(ini, "General", "Disable Sleep Healing", bDisableSleepHealing);
 	};
 
 	ReadSettingsIni(ini_path);

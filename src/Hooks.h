@@ -16,9 +16,10 @@ public:
 	{
 		_UpdateLevelBegin = F4SE::GetTrampoline().write_call<5>(REL::ID(181041).address() + 0x53, UpdateLevelBegin);
 		_UpdateLevelFinish = F4SE::GetTrampoline().write_call<5>(REL::ID(181041).address() + 0x8D, UpdateLevelFinish);
+		_PlayerSleepRestoreHealth = F4SE::GetTrampoline().write_call<5>(REL::ID(1551767).address() + 0x42, PlayerSleepRestoreHealth);
 	}
 
-	static void UpdatePlayerLevel()
+	static void GetPlayerLevelOnLoadGame()
 	{
 		oldPlayerLevel = RE::PlayerCharacter::GetSingleton()->GetLevel();
 	}
@@ -43,7 +44,6 @@ private:
 	static void UpdateLevelFinish(RE::PlayerCharacter* a_player)
 	{
 		auto avSingleton = RE::ActorValue::GetSingleton();
-
 		float currentHealth = 0.f, newMaxHealth = 0.f;
 		if (Settings::bDisableLevelUpHealth)
 		{
@@ -98,4 +98,12 @@ private:
 		}		
 	}
 	static inline REL::Relocation<decltype(UpdateLevelFinish)> _UpdateLevelFinish;
+
+	static void PlayerSleepRestoreHealth(RE::PlayerCharacter* a_player)
+	{
+		if (!Settings::bDisableSleepHealing)
+			_PlayerSleepRestoreHealth(a_player);
+	}
+	static inline REL::Relocation<decltype(PlayerSleepRestoreHealth)> _PlayerSleepRestoreHealth;
+
 };
