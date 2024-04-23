@@ -11,7 +11,7 @@ namespace
 				Settings::ReadIniSettings();
 				break;
 			case F4SE::MessagingInterface::kPostLoadGame:
-				Hooks::UpdatePlayerLevel();
+				Hooks::GetPlayerLevelOnLoadGame();
 				break;
 			default:
 				break;
