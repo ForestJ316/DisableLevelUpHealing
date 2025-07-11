@@ -7,10 +7,10 @@ class Hooks
 public:
 	static void Hook()
 	{
-		_UpdateLevelFinish = F4SE::GetTrampoline().write_call<5>(REL::ID(181041).address() + 0x8D, UpdateLevelFinish);
+		_UpdateLevelFinish = REL::GetTrampoline().write_call<5>(REL::ID(2233291).address() + 0x25B, UpdateLevelFinish);
 		_RestoreAV = REL::Relocation<std::uintptr_t>(RE::VTABLE::PlayerCharacter[7]).write_vfunc(0x08, RestoreAV);
 	}
-
+	
 private:
 	static inline bool bIsLevelUp = false;
 

@@ -6,11 +6,6 @@
 #include <REL/Relocation.h>
 
 #include <SimpleIni.h>
-
 #pragma warning(pop)
 
 using namespace std::literals;
-
-#define DLLEXPORT __declspec(dllexport)
-
-#include "Version.h"

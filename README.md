@@ -1,23 +1,28 @@
-### For Game Version 1.10.163
+### For Game Version 1.10.984
 ## Requirements
-* [CMake](https://cmake.org/)
-	* Add this to your `PATH`
-* [Vcpkg](https://github.com/microsoft/vcpkg)
-	* Add the environment variable `VCPKG_ROOT` with the value as the path to the folder containing vcpkg
+* [XMake](https://xmake.io) [2.8.2+]
 * [Visual Studio Community 2022](https://visualstudio.microsoft.com/)
-	* Desktop development with C++
+* C++23 Compiler (MSVC or Clang-CL)
 
 ## Building
 ```
-git clone https://github.com/ForestJ316/DisableLevelUpHealing
+git clone --recurse-submodules https://github.com/ForestJ316/DisableLevelUpHealing/tree/NGVersion
 cd DisableLevelUpHealing
-git submodule init
-git submodule update
 
-cmake --preset vs2022-windows-vcpkg
-cmake --build build --config Release
+xmake build
 ```
+> *This will generate a `build/windows/` directory in the **project's root directory** with the build output.*
+
+### Project Generation (Optional)
+If you want to generate a Visual Studio project, run the following command:
+```bat
+xmake project -k vsxmake
+```
+> *This will generate a `vsxmakeXXXX/` directory in the **project's root directory** using the latest version of Visual Studio installed on the system.*
 
 ## Optional
-* [Fallout 4](https://store.steampowered.com/app/377160)
-	* Add the environment variable `Fallout4Path` to point to the folder where you want the .dll to be copied after it's finished building
+If you want to redirect the build output, set one of the following environment variables:
+
+* Path to a [Fallout 4](https://store.steampowered.com/app/377160) install folder: `XSE_FO4_GAME_PATH`
+
+* Path to a [Mod Manager](https://www.modorganizer.org/) mods folder: `XSE_FO4_MODS_PATH`
