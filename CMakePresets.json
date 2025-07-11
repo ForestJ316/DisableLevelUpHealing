@@ -66,13 +66,22 @@
     },
     {
       "cacheVariables": {
+        "ENABLE_FALLOUT_NG": "OFF",
+        "ENABLE_FALLOUT_VR": "OFF"
+      },
+      "hidden": true,
+      "name": "runtimes-f4"
+    },
+    {
+      "cacheVariables": {
         "CMAKE_CXX_FLAGS": "/EHsc /MP /W4 /WX /external:W0"
       },
       "generator": "Visual Studio 17 2022",
       "inherits": [
         "cmake-dev",
         "vcpkg",
-        "windows"
+        "windows",
+        "runtimes-f4"
       ],
       "name": "vs2022-windows-vcpkg",
       "toolset": "v143"

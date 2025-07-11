@@ -10,5 +10,4 @@ public:
 	// General
 	static inline bool bDisableLevelUpHealth = false;
 	static inline bool bDisableLevelUpAP = false;
-	static inline bool bDisableSleepHealing = false;
 };

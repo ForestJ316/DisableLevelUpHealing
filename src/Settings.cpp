@@ -11,7 +11,6 @@ void Settings::ReadIniSettings()
 		
 		ReadBoolSetting(ini, "General", "Disable Level-Up Health", bDisableLevelUpHealth);
 		ReadBoolSetting(ini, "General", "Disable Level-Up AP", bDisableLevelUpAP);
-		ReadBoolSetting(ini, "General", "Disable Sleep Healing", bDisableSleepHealing);
 	};
 
 	ReadSettingsIni(ini_path);
@@ -21,8 +20,7 @@ void Settings::ReadBoolSetting(CSimpleIniA& a_ini, const char* a_sectionName, co
 {
 	const char* bFound = nullptr;
 	bFound = a_ini.GetValue(a_sectionName, a_settingName);
-	if (bFound)
-	{
+	if (bFound) {
 		a_setting = a_ini.GetBoolValue(a_sectionName, a_settingName);
 	}
 }
