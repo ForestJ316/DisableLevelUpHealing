@@ -2,13 +2,11 @@
   "name": "disableleveluphealing",
   "version-string": "1.0.2",
   "homepage": "https://github.com/ForestJ316/DisableLevelUpHealing",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": [
-    "boost-stl-interfaces",
-    "fmt",
-    "rsm-mmio",
-    "simpleini",
+    "mmio",
     "rapidcsv",
+    "simpleini",
     "spdlog"
   ],
   "builtin-baseline": "9224b3bbd8df24999d85720b1d005dd6f969ade0"

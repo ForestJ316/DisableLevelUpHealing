@@ -7,70 +7,43 @@
   },
   "configurePresets": [
     {
+      "name": "cmake-dev",
+      "hidden": true,
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": {
-          "type": "STRING",
-          "value": "Debug"
-        }
+        "CMAKE_BUILD_TYPE": "Debug"
       },
       "errors": {
         "deprecated": true
       },
-      "hidden": true,
-      "name": "cmake-dev",
       "warnings": {
         "deprecated": true,
         "dev": true
       }
     },
     {
-      "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": {
-          "type": "STRING",
-          "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-        },
-        "VCPKG_OVERLAY_PORTS": {
-          "type": "STRING",
-          "value": "${sourceDir}/cmake/ports/"
-        }
-      },
+      "name": "vcpkg",
       "hidden": true,
-      "name": "vcpkg"
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "VCPKG_OVERLAY_PORTS": "${sourceDir}/cmake/ports/"
+      }
     },
     {
-      "cacheVariables": {
-        "Boost_USE_STATIC_LIBS": {
-          "type": "BOOL",
-          "value": "ON"
-        },
-        "Boost_USE_STATIC_RUNTIME": {
-          "type": "BOOL",
-          "value": "OFF"
-        },
-        "CMAKE_EXE_LINKER_FLAGS_RELEASE": {
-          "type": "STRING",
-          "value": "/DEBUG:FASTLINK"
-        },
-        "CMAKE_MSVC_RUNTIME_LIBRARY": {
-          "type": "STRING",
-          "value": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
-        },
-        "VCPKG_TARGET_TRIPLET": {
-          "type": "STRING",
-          "value": "x64-windows-static-md"
-        }
-      },
+      "name": "windows",
       "hidden": true,
-      "name": "windows"
+      "cacheVariables": {
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
+      }
     },
     {
+      "hidden": true,
+      "name": "runtimes-f4",
       "cacheVariables": {
         "ENABLE_FALLOUT_NG": "OFF",
         "ENABLE_FALLOUT_VR": "OFF"
-      },
-      "hidden": true,
-      "name": "runtimes-f4"
+      }
     },
     {
       "cacheVariables": {

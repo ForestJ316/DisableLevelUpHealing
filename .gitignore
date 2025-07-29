@@ -423,3 +423,5 @@ FodyWeavers.xsd
 
 /build
 *.swf
+# XMake Project from NG Version #
+vsxmake2022/
